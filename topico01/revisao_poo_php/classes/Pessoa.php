@@ -22,26 +22,13 @@ class Pessoa
 		echo "\n$this->nome foi destruido!";
 	}
 
-	function calcImc()
+	function setImc($valor)
 	{
-		if (
-			!is_numeric($this->altura)
-			&& !is_numeric($this->peso)
-		) {
-			echo "\nIMC $this->nome: Erro, informe peso e altura corretamente.\n";
-            return;
-        }
-
-        $this->imc = $this->peso / $this->altura ** 2;
-		echo "\nO IMC do $this->nome é: " . number_format($this->imc, 2) . "\n";
-		
+		$this->imc = $valor;
 	}
 
-    function setImc($valor){
-        $this->imc = $valor;
-    }
-
-    function getImc(){
-        return $this->imc;
-    }
+	function getImc()
+	{
+		return $this->imc;
+	}
 }
