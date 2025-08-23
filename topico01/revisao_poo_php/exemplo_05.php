@@ -21,7 +21,7 @@ class Pessoa
 	function calcIMC()
 	{
 		if (!$this->peso && !$this->altura) {
-			echo "\nErro: configurar peso e altura primeiro!!\n";
+			echo "\nErro: Deve-se configurar o peso e altura primeiro!!\n";
 			$this->imc = 0;
 			return;
 		}

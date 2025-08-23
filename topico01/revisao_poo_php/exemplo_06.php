@@ -20,7 +20,7 @@ class Pessoa
 
 	function __destruct()
 	{
-		echo "\n$this->nome foi destruido!";
+		echo "\n$this->nome foi destruido!!";
 	}
 
 	function calcImc()

@@ -13,14 +13,14 @@ class Professor extends Funcionario
 		$peso = null,
 		$salario = 0
 	) {
-		parent::__construct($nome, $idade, $altura, $peso, $salario, $area='geral');
-        $this->area = $area;
-        $this->salario = $salario;
-    }
+		parent::__construct($nome, $idade, $altura, $peso, $salario, $area = 'geral');
+		$this->area = $area;
+		$this->salario = $salario;
+	}
 
 	public function areaAtuacao()
 	{
-		echo "\nAtua na área: " . $this->area;
-        echo "\n Seu imc é:".$this->imc;
+		echo "\nAtua na área de: " . $this->area;
+		echo "\n Seu imc é:" . $this->imc;
 	}
 }

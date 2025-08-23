@@ -15,6 +15,6 @@ class Funcionario extends Pessoa
 
 	function verSalario()
 	{
-		echo "\nSalario: " . $this->salario . "\n";
+		echo "\nSalario atual: " . $this->salario . "\n";
 	}
 }

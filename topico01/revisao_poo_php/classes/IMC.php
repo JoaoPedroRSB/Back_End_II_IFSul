@@ -40,7 +40,7 @@ class IMC
         } else if ($valor >= 30) {
             return "Obesidade";
         } else {
-            return "Sem classificacao exata";
+            return "Sem classificacao exata no momento";
         }
     }
 }
