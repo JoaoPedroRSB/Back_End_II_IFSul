@@ -1,4 +1,5 @@
 <?php
+
 namespace Gvg\Dbe2\classes;
 
 class Pessoa
@@ -8,7 +9,7 @@ class Pessoa
     public float | null $peso;
     public float | null $altura;
 
-    public function __construct($nome, $idade, $peso=null, $altura=null)
+    public function __construct($nome, $idade, $peso = null, $altura = null)
     {
         $this->nome = $nome;
         $this->idade = $idade;
@@ -18,24 +19,27 @@ class Pessoa
 
     public function __destruct()
     {
-        echo "\n$this->nome foi destruído!!!";
+        echo "\n$this->nome foi destruído";
     }
 
-    function __get($name){
+    function __get($name)
+    {
         echo "\nRetornando o $name do $this->nome...";
         return $this->$name;
     }
 
-    function __set($name,$value){
+    function __set($name, $value)
+    {
         echo "\nAlterando $name do $this->nome...\n";
-        $this->$name=$value;
+        $this->$name = $value;
     }
 
-    function __toString(): string{
+    function __toString(): string
+    {
         return "\n===Dados da Pessoa==="
-                ."\nNome: $this->nome"
-                .($this->idade?"\nIdade: $this->idade":"")
-                ."\nPessoa: $this->peso"
-                ."\nAltura: $this->altura";
+            . "\nNome: $this->nome"
+            . ($this->idade ? "\nIdade: $this->idade" : "")
+            . "\nPessoa: $this->peso"
+            . "\nAltura: $this->altura";
     }
 }
