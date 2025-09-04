@@ -1,0 +1,20 @@
+{
+    "name": "erick/exer.com-idade",
+    "type": "project",
+    "require": {
+        "psy/psysh": "^0.12.10",
+        "illuminate/support": "^12.26"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Exer\\ComIdade\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "ErickLuiscb",
+            "email": "erickbarneche.pl020@academico.ifsul.edu.br"
+        }
+    ]
+}
