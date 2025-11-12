@@ -19,6 +19,8 @@
 <p><strong>Imagem:</strong></p>
 <img src="{{ asset('storage/' . $livro->imagem) }}" alt="Imagem do livro" style="max-width: 200px; max-height: 300px;">
 @endif
+<br>
+<br>
 
 <a href="{{ route('livros.edit', $livro->id) }}">Editar</a> |
 <a href="{{ route('livros.index') }}">Voltar</a>

@@ -34,7 +34,7 @@ class UsuarioController extends Controller
         // Criação do usuário
         Usuario::create($data);
 
-        return redirect()->route('usuarios.index')->with('success', 'Usuário cadastrado com sucesso!');
+        return redirect()->route('usuarios.index')->with('success', 'Usuário Cadastrado com Sucesso!');
     }
 
     public function show(Usuario $usuario)
@@ -68,7 +68,7 @@ class UsuarioController extends Controller
         // Atualizando o usuário
         $usuario->update($data);
 
-        return redirect()->route('usuarios.index')->with('success', 'Usuário atualizado com sucesso!');
+        return redirect()->route('usuarios.index')->with('success', 'Usuário Atualizado com Sucesso!');
     }
 
     // Excluino o usuário
@@ -77,7 +77,7 @@ class UsuarioController extends Controller
         try {
             $usuario->delete();
             return redirect()->route('usuarios.index')
-                ->with('success', 'Usuário excluído com sucesso!');
+                ->with('success', 'Usuário Excluído com Sucesso!');
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->getCode() == "23000") {
                 return redirect()->route('usuarios.index')

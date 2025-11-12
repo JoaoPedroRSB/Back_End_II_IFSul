@@ -33,7 +33,7 @@ class ComprasController extends Controller
         // Criar a compra com os dados recebidos
         Compras::create($request->all());
 
-        return redirect()->route('compras.index')->with('success', 'Compra registrada com sucesso!');
+        return redirect()->route('compras.index')->with('success', 'Compra Registrada com Sucesso!');
     }
 
     // Mostrar uma compra específica
@@ -58,7 +58,7 @@ class ComprasController extends Controller
         $compra = Compras::findOrFail($id);
         $compra->update($request->all());
 
-        return redirect()->route('compras.index')->with('success', 'Compra atualizada com sucesso!');
+        return redirect()->route('compras.index')->with('success', 'Compra Atualizada com Sucesso!');
     }
 
     // Excluir compra
@@ -67,6 +67,6 @@ class ComprasController extends Controller
         $compra = Compras::findOrFail($id);
         $compra->delete();
 
-        return redirect()->route('compras.index')->with('success', 'Compra removida com sucesso!');
+        return redirect()->route('compras.index')->with('success', 'Compra Removida com Sucesso!');
     }
 }

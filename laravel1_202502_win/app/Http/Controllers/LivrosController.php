@@ -56,7 +56,7 @@ class LivrosController extends Controller
         $livro->save();
 
         // Redireciona para a página de livros com uma mensagem de sucesso
-        return redirect()->route('livros.index')->with('success', 'Livro cadastrado com sucesso!');
+        return redirect()->route('livros.index')->with('success', 'Livro Cadastrado com Sucesso!');
     }
 
     public function show(Livros $livro)
@@ -96,7 +96,7 @@ class LivrosController extends Controller
         $livro->save();
 
         // Redireciona para a página de livros com uma mensagem de sucesso
-        return redirect()->route('livros.index')->with('success', 'Livro atualizado com sucesso!');
+        return redirect()->route('livros.index')->with('success', 'Livro Atualizado com Sucesso!');
     }
 
     public function destroy(Livros $livro)
@@ -105,6 +105,6 @@ class LivrosController extends Controller
         $livro->delete();
 
         // Redireciona para a página de livros com uma mensagem de sucesso
-        return redirect()->route('livros.index')->with('success', 'Livro excluído com sucesso!');
+        return redirect()->route('livros.index')->with('success', 'Livro Excluído com Sucesso!');
     }
 }
