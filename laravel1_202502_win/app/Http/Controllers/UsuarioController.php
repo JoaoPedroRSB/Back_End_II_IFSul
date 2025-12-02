@@ -20,10 +20,9 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        // Pegando todos os dados diretamente do request
         $data = $request->all();
 
-        // Se o tipo for 'usuariocomum', removemos os campos da livraria manualmente
+        // Se o tipo for 'usuariocomum', remove os campos da livraria manualmente
         if ($data['tipo'] === 'usuariocomum') {
             $data['nome_livraria'] = null;
             $data['email_livraria'] = null;
@@ -49,10 +48,9 @@ class UsuarioController extends Controller
 
     public function update(Request $request, Usuario $usuario)
     {
-        // Pegando todos os dados diretamente do request
         $data = $request->all();
 
-        // Se o tipo for 'usuariocomum', removemos os campos da livraria manualmente
+        // Se o tipo for 'usuariocomum', remove os campos da livraria manualmente
         if ($data['tipo'] === 'usuariocomum') {
             $data['nome_livraria'] = null;
             $data['email_livraria'] = null;
@@ -60,7 +58,7 @@ class UsuarioController extends Controller
             $data['celular_contato'] = null;
         }
 
-        // Se a senha foi alterada, criptografamos
+        // Se a senha foi alterada, ela é criptografada
         if (!empty($data['senha'])) {
             $data['senha'] = bcrypt($data['senha']);
         }

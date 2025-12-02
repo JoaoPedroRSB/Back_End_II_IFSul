@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'usuarios';
 
@@ -20,29 +22,51 @@ class Usuario extends Model
         'data_nascimento',
         'cidade',
         'estado',
-        'tipo',
+        'tipo', // usuariocomum ou donodalivraria
         'nome_livraria',
         'email_livraria',
         'cnpj',
         'celular_contato',
     ];
 
-    protected $hidden = ['senha'];
+    protected $hidden = [
+        'senha',
+        'remember_token',
+    ];
 
-    // Relação com livros criados
+    /**
+     * Mutator: sempre criptografar senha automaticamente
+     */
+    public function setSenhaAttribute($value)
+    {
+        if ($value) {
+            $this->attributes['senha'] = bcrypt($value);
+        }
+    }
+
+    /**
+     * Abilities do Sanctum baseado no tipo de usuário
+     */
+    public function abilitiesFromTipo(): array
+    {
+        return $this->tipo === 'donodalivraria'
+            ? ['admin']
+            : ['user'];
+    }
+
+    /**
+     * Relação com Livros
+     */
     public function livros()
     {
         return $this->hasMany(Livros::class, 'criado_por');
     }
 
-    // Relação com compras realizadas
+    /**
+     * Relação com Compras
+     */
     public function compras()
     {
         return $this->hasMany(Compras::class, 'id_usuario');
-    }
-
-    public function setSenhaAttribute($value)
-    {
-        $this->attributes['senha'] = bcrypt($value);
     }
 }

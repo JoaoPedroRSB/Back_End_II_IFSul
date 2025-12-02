@@ -16,15 +16,18 @@ class StoreLivroRequest extends FormRequest
     return [
       'titulo' => 'required|string|max:255',
       'autor' => 'required|string|max:255',
-      'genero' => 'nullable|string|max:100',
-      'colecao' => 'nullable|string|max:100',
+      'genero' => 'required|string|max:255',
+      'sinopse' => 'required|string|max:5000',
+      'colecao' => 'nullable|string|max:255',
       'formato' => 'required|in:fisico,digital',
-      'quantidade' => 'nullable|integer|min:0',
-      'numeroDePaginas' => 'nullable|integer|min:1',
-      'editora' => 'nullable|string|max:255',
+      'quantidade' => 'required|integer|min:0',
+      'numeroDePaginas' => 'required|integer|min:1',
+      'editora' => 'required|string|max:255',
       'preco' => 'required|numeric|min:0',
-      'lancamento' => 'nullable|date',
-      'imagem' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+      'lancamento' => 'required|date',
+      'avaliacao' => 'numeric|min:0|max:5',
+      'vendas' => 'integer|min:0',
+      'imagem' => 'nullable|string|max:255',
     ];
   }
 }

@@ -9,7 +9,7 @@ class Livros extends Model
 {
     use HasFactory;
 
-    protected $table = 'livros'; // Garantir que estamos utilizando a tabela correta.
+    protected $table = 'livros';
 
     protected $fillable = [
         'titulo',
@@ -26,10 +26,9 @@ class Livros extends Model
         'lancamento',
         'vendas',
         'avaliacao',
-        'criado_por', // Supondo que isso esteja relacionado a um usuário
+        'criado_por',
     ];
 
-    // Caso tenha um relacionamento com o usuário, por exemplo, o dono do livro
     public function usuario()
     {
         return $this->belongsTo(Usuario::class, 'criado_por');

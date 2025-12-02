@@ -9,21 +9,22 @@ class LivroStoreResource extends JsonResource
   public function toArray($request)
   {
     return [
-      'mensagem' => 'Livro cadastrado com sucesso!',
-      'dados' => [
-        'id' => $this->id,
-        'titulo' => $this->titulo,
-        'autor' => $this->autor,
-        'genero' => $this->genero,
-        'colecao' => $this->colecao,
-        'formato' => $this->formato,
-        'quantidade' => $this->quantidade,
-        'numeroDePaginas' => $this->numeroDePaginas,
-        'editora' => $this->editora,
-        'preco' => $this->preco,
-        'lancamento' => $this->lancamento,
-        'created_at' => $this->created_at,
-      ],
+      'id' => $this->id,
+      'titulo' => $this->titulo,
+      'autor' => $this->autor,
+      'genero' => $this->genero,
+      'sinopse' => $this->sinopse,
+      'colecao' => $this->colecao,
+      'formato' => $this->formato,
+      'quantidade' => $this->quantidade,
+      'numeroDePaginas' => $this->numeroDePaginas,
+      'editora' => $this->editora,
+      'preco' => $this->preco,
+      'lancamento' => $this->lancamento,
+      'avaliacao' => $this->avaliacao,
+      'vendas' => $this->vendas,
+      'imagem' => $this->imagem ? asset('storage/' . $this->imagem) : null,
+      'created_at' => $this->created_at,
     ];
   }
 }

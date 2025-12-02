@@ -14,14 +14,13 @@ class UpdateCompraRequest extends FormRequest
   public function rules()
   {
     return [
-      'id_usuario' => 'nullable|exists:usuarios,id',
-      'id_livro' => 'required|exists:livros,id',
-      'quantidade' => 'required|integer|min:1',
-      'formato' => 'required|in:fisico,digital',
-      'preco_unitario' => 'required|numeric|min:0',
-      'total' => 'nullable|numeric|min:0',
-      'endereco' => 'nullable|string|max:255',
-      'forma_pagamento' => 'required|in:cartao,boleto,pix',
+      'id_livro' => 'sometimes|exists:livros,id',
+      'quantidade' => 'sometimes|integer|min:1',
+      'formato' => 'sometimes|in:fisico,digital',
+      'preco_unitario' => 'sometimes|numeric|min:0',
+      'total' => 'sometimes|numeric|min:0',
+      'endereco' => 'sometimes|string|max:255',
+      'forma_pagamento' => 'sometimes|in:cartao,boleto,pix',
     ];
   }
 }
